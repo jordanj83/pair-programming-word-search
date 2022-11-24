@@ -18,9 +18,10 @@ describe("#wordSearch()", function() {
     ], 'FRANK')
 
     assert.isFalse(result);
+
   });
 
-  it("should return true if the word is present", function() {
+  it("should return true if the word is present going horizontally", function() {
     const result = wordSearch([
       ['A', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'],
       ['S', 'E', 'I', 'N', 'F', 'E', 'L', 'D'],
@@ -34,5 +35,27 @@ describe("#wordSearch()", function() {
     ], 'SEINFELD')
 
     assert.isTrue(result);
+  });
+
+  it("should return true if the word is present going vertically", function() {
+    const result = wordSearch([
+      ['A', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['S', 'E', 'I', 'N', 'F', 'E', 'L', 'D'],
+      ['Y', 'F', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['H', 'R', 'J', 'T', 'E', 'V', 'R', 'G'],
+      ['W', 'A', 'C', 'S', 'Y', 'E', 'R', 'L'],
+      ['B', 'N', 'R', 'E', 'N', 'E', 'Y', 'B'],
+      ['U', 'K', 'T', 'W', 'A', 'P', 'A', 'I'],
+      ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
+      ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
+    ], 'FRANK')
+
+    assert.isTrue(result);
+  });
+
+  it("should return false if there is a blank array", function() {
+    const result = wordSearch([],'SEINFELD')
+
+    assert.isFalse(result);
   });
 });
